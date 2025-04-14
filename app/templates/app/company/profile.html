@@ -1,0 +1,192 @@
+{% extends "app/company/base1.html" %} 
+{% load static %} 
+{% block content %}
+<!-- Profile Update Section -->
+
+<section
+  class="section d-flex align-items-center justify-content-center"
+  style="min-height: 100vh"
+>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="rounded shadow bg-white p-4">
+          <div class="custom-form">
+            <div id="message3"></div>
+            <form
+              method="post"
+              action="{% url 'updatecompanyprofile' pk=request.session.id %}"
+              name="contact-form"
+              id="contact-form3"
+              enctype="multipart/form-data"
+            >
+              {% csrf_token %}
+              <h4 class="text-dark mb-3 text-center" style="margin-top: 50px">
+                Company profile
+              </h4>
+              <!-- Name Fields -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group app-label mt-2">
+                    <label class="text-muted">Firstname</label>
+                    <input
+                      type="text"
+                      name="firstname"
+                      class="form-control resume"
+                      value="{{ comp.firstname }}"
+                      placeholder="enter firstname"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group app-label mt-2">
+                    <label class="text-muted">Lastname</label>
+                    <input
+                      type="text"
+                      name="lastname"
+                      class="form-control resume"
+                      value="{{ comp.lastname }}"
+                      placeholder="enter lastname"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!-- Location Fields -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group app-label mt-2">
+                    <label class="text-muted">City</label>
+                    <input
+                      type="text"
+                      class="form-control resume"
+                      name="city"
+                      value="{{ comp.city }}"
+                      placeholder="enter city name"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group app-label mt-2">
+                    <label class="text-muted">State</label>
+                    <input
+                      type="text"
+                      class="form-control resume"
+                      name="state"
+                      value="{{ comp.state }}"
+                      placeholder="enter state name"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group app-label mt-2">
+                    <label class="text-muted">Companies Website</label>
+                    <input
+                      type="text"
+                      class="form-control resume"
+                      name="website"
+                      value="{{ comp.website }}"
+                      placeholder="enter website link"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group app-label mt-2">
+                    <label class="text-muted">Company Name</label>
+                    <input
+                      type="text"
+                      class="form-control resume"
+                      name="company_name"
+                      value="{{ comp.company_name }}"
+                      placeholder="enter company name"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group app-label mt-2">
+                    <label class="text-muted">Company Address</label>
+                    <input
+                      type="text"
+                      class="form-control resume"
+                      name="address"
+                      value="{{ comp.address }}"
+                      placeholder="enter company address"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!-- Contact Information -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group app-label mt-2">
+                    <label class="text-muted">Email Address</label>
+                    <input
+                      type="text"
+                      class="form-control resume"
+                      value="{{ user.email }}"
+                      placeholder="enter email id"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group app-label mt-2">
+                    <label class="text-muted">Phone Number</label>
+                    <input
+                      type="text"
+                      class="form-control resume"
+                      name="contact"
+                      value="{{ comp.contact }}"
+                      placeholder="enter contact"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!-- Job Description -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group app-label mt-2">
+                    <label class="text-muted">Company Description</label>
+                    <textarea
+                      rows="6"
+                      class="form-control resume"
+                      name="description"
+                      placeholder="enter description about the company"
+                    >{{ comp.description }}
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="image">Company Logo:</label>
+                <input
+                  type="file"
+                  class="form-control"
+                  id="image"
+                  name="image"
+                  accept="image/*"
+                />
+              </div>
+
+              <!-- Submit Button -->
+              <div class="row">
+                <div class="col-lg-12 mt-3">
+                  <input
+                    type="submit"
+                    class="btn btn-primary w-100"
+                    value="Submit"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Profile Update Section -->
+{% endblock %}
